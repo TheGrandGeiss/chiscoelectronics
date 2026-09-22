@@ -1,26 +1,128 @@
+/* If you are on Tailwind v4, use this line and delete the three @tailwind lines below.
 @import "tailwindcss";
+*/
+@import 'tailwindcss';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --paper: #f6f7f5;
+  --ink: #101e18;
+  --ink-soft: #4a5a52;
+  --forest: #0e5c3f;
+  --brass: #b07a16;
+  --stoned: #dcddd8;
+  --whatsapp: #25d366;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+  --color-paper: #f6f7f5;
+  --color-ink: #101e18;
+  --color-ink-soft: #4a5a52;
+  --color-forest: #0e5c3f;
+  --color-brass: #b07a16;
+  --color-stoned: #dcddd8;
+  --color-whatsapp: #25d366;
+
+  --font-horizon: var(--font-horizon), sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  /* Force all headings to use the new font */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-horizon);
   }
 }
 
+html {
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+@layer utilities {
+  .hide-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.display {
+  font-family: var(--font-display), system-ui, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* The one orchestrated motion moment: stock board rows settle in sequence. */
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.settle {
+  animation: settle 260ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .settle {
+    animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--forest);
+  outline-offset: 2px;
+}
+
+.hero {
+  background:
+    radial-gradient(
+      ellipse at 50% 20%,
+      rgba(220, 235, 255, 0.45) 0%,
+      rgba(220, 235, 255, 0) 55%
+    ),
+    linear-gradient(
+      180deg,
+      #b7cfee 0%,
+      #a9c5e8 25%,
+      #7fa4d4 50%,
+      #527db8 75%,
+      #3f69a5 100%
+    );
 }
