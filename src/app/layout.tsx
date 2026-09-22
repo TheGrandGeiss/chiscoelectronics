@@ -5,6 +5,7 @@ import SmoothScrolling from '@/components/SmoothScrolling';
 import MotionProvider from '@/components/MotionProvider';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { Metadata } from 'next';
 
 const pliant = Pliant({
   weight: ['400', '700'],
@@ -17,6 +18,15 @@ const horizon = Horizon({
   variable: '--font-horizon',
   display: 'swap',
 });
+
+export const metadata: Metadata = {
+  title: {
+    template: '%s | Chisco Electronics',
+    default: 'Chisco Electronics | Powering homes. Equipping businesses.', // Shows on the home page
+  },
+  description:
+    'Premium electronics engineered for excellence. Quality appliances and power solutions from trusted brands.',
+};
 
 export default function RootLayout({
   children,

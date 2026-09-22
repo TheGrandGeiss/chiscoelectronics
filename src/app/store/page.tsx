@@ -1,6 +1,13 @@
 // app/store/page.tsx
 import ProductCard from '@/components/ProductCard';
+import { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Store',
+  description:
+    'Explore our latest arrivals of premium electronics, appliances, and power solutions.',
+};
 
 export default async function StorePage() {
   const res = await fetch('https://fakestoreapi.com/products/', {

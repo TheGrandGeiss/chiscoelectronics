@@ -3,6 +3,32 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { BiStar, BiCheckShield, BiPackage, BiArrowBack } from 'react-icons/bi';
 import AddToCartSection from '@/components/AddToCartSection';
+import { Metadata } from 'next';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const resolvedParams = await params;
+  const id = resolvedParams.id;
+
+  // Fetch the specific product just for the metadata
+  const res = await fetch(`https://fakestoreapi.com/products/${id}`);
+
+  if (!res.ok) {
+    return {
+      title: 'Product Not Found',
+    };
+  }
+
+  const product = await res.json();
+
+  return {
+    title: product.title, // Tab will read: "Product Name | Chisco Electronics"
+    description: product.description,
+  };
+}
 
 export default async function ProductPage({
   params,

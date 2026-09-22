@@ -91,7 +91,7 @@ export default function Navbar() {
               src={logo}
               alt='Chisco Electronics'
               width={110}
-              className={`h-auto w-[88px] transition-[filter] duration-500 sm:w-[110px] ${
+              className={`h-auto w-22 transition-[filter] duration-500 sm:w-27.5 ${
                 ink ? '' : 'invert' // If 'ink' is true, logo stays black. If false, it inverts to white.
               }`}
               priority
