@@ -1,6 +1,7 @@
 // app/store/page.tsx
 import type { Metadata } from 'next';
 import ProductCard from '@/components/ProductCard';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Store',
@@ -55,10 +56,11 @@ export default async function StorePage() {
 
         <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10'>
           {products.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-            />
+            <Link
+              href={`/store/${product.id}`}
+              key={product.id}>
+              <ProductCard product={product} />
+            </Link>
           ))}
         </div>
       </div>

@@ -13,8 +13,8 @@ export async function generateMetadata({
   const resolvedParams = await params;
   const id = resolvedParams.id;
 
-  // Fetch the specific product just for the metadata
-  const res = await fetch(`https://fakestoreapi.com/products/${id}`);
+  // Fetch the specific product just for the metadata using DummyJSON
+  const res = await fetch(`https://dummyjson.com/products/${id}`);
 
   if (!res.ok) {
     return {
@@ -33,14 +33,22 @@ export async function generateMetadata({
 export default async function ProductPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>; // Fixed this to expect a Promise to match Next.js 16 requirements
 }) {
   const resolvedParams = await params;
   const id = resolvedParams.id;
-  const res = await fetch(`https://fakestoreapi.com/products/${id}`, {
+
+  // Fetch from DummyJSON
+  const res = await fetch(`https://dummyjson.com/products/${id}`, {
     next: { revalidate: 3600 },
   });
-  const product = await res.json();
+  const data = await res.json();
+
+  // Normalize DummyJSON data to match our existing component structures
+  const product = {
+    ...data,
+    image: data.thumbnail, // DummyJSON uses 'thumbnail', our components expect 'image'
+  };
 
   return (
     <main className='min-h-screen bg-[#f5f5f7] pb-32 pt-32'>
@@ -79,7 +87,7 @@ export default async function ProductPage({
               {product.title}
             </h1>
 
-            {/* Ratings from FakeStore API */}
+            {/* Ratings from DummyJSON API */}
             <div className='mb-6 flex items-center gap-2'>
               <div className='flex text-yellow-500'>
                 {[...Array(5)].map((_, i) => (
@@ -87,7 +95,7 @@ export default async function ProductPage({
                     key={i}
                     size={20}
                     className={
-                      i < Math.round(product.rating.rate)
+                      i < Math.round(product.rating || 0)
                         ? 'fill-current'
                         : 'text-slate-300'
                     }
@@ -95,7 +103,7 @@ export default async function ProductPage({
                 ))}
               </div>
               <span className='text-sm font-medium text-ink-soft'>
-                {product.rating.rate} ({product.rating.count} reviews)
+                {product.rating} ({product.reviews?.length || 0} reviews)
               </span>
             </div>
 
