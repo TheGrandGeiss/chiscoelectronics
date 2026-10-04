@@ -4,6 +4,21 @@ import Link from 'next/link';
 import { BiStar, BiCheckShield, BiPackage, BiArrowBack } from 'react-icons/bi';
 import AddToCartSection from '@/components/AddToCartSection';
 import { Metadata } from 'next';
+import productsData from '@/data/products.json';
+
+interface Product {
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+  rating: number;
+  category: string;
+  thumbnail: string;
+  reviews: Record<string, any>[]; // Or a more specific review interface if you have one
+}
+
+// 3. Cast the imported data to an array of this interface
+const products = productsData.products as Product[];
 
 export async function generateMetadata({
   params,
@@ -13,16 +28,14 @@ export async function generateMetadata({
   const resolvedParams = await params;
   const id = resolvedParams.id;
 
-  // Fetch the specific product just for the metadata using DummyJSON
-  const res = await fetch(`https://dummyjson.com/products/${id}`);
+  // Find the product directly from the imported array
+  const product = products.find((p) => p.id.toString() === id);
 
-  if (!res.ok) {
+  if (!product) {
     return {
       title: 'Product Not Found',
     };
   }
-
-  const product = await res.json();
 
   return {
     title: product.title, // Tab will read: "Product Name | Chisco Electronics"
@@ -33,21 +46,26 @@ export async function generateMetadata({
 export default async function ProductPage({
   params,
 }: {
-  params: Promise<{ id: string }>; // Fixed this to expect a Promise to match Next.js 16 requirements
+  params: Promise<{ id: string }>;
 }) {
   const resolvedParams = await params;
   const id = resolvedParams.id;
 
-  // Fetch from DummyJSON
-  const res = await fetch(`https://dummyjson.com/products/${id}`, {
-    next: { revalidate: 3600 },
-  });
-  const data = await res.json();
+  // Find the product directly from the imported array
+  const data = products.find((p) => p.id.toString() === id);
 
-  // Normalize DummyJSON data to match our existing component structures
+  if (!data) {
+    return (
+      <main className='flex min-h-screen items-center justify-center bg-[#f5f5f7]'>
+        <h1 className='text-2xl font-semibold text-ink'>Product not found</h1>
+      </main>
+    );
+  }
+
+  // Normalize data to match the component structures
   const product = {
     ...data,
-    image: data.thumbnail, // DummyJSON uses 'thumbnail', our components expect 'image'
+    image: data.thumbnail,
   };
 
   return (
@@ -87,7 +105,7 @@ export default async function ProductPage({
               {product.title}
             </h1>
 
-            {/* Ratings from DummyJSON API */}
+            {/* Ratings */}
             <div className='mb-6 flex items-center gap-2'>
               <div className='flex text-yellow-500'>
                 {[...Array(5)].map((_, i) => (

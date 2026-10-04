@@ -1,0 +1,124 @@
+{
+"products": [
+{
+"id": "1",
+"title": "Samsung 65-Inch 4K Smart UHD TV",
+"description": "Experience crystal clear colors that are fine-tuned to deliver a naturally crisp and vivid picture. Features Tizen OS for seamless streaming of your favorite apps.",
+"category": "Televisions",
+"price": 850.00,
+"rating": 4.8,
+"thumbnail": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&q=80&w=800",
+"reviews": [{}, {}, {}, {}, {}, {}, {}, {}]
+},
+{
+"id": "2",
+"title": "LG 430L Double Door Refrigerator",
+"description": "Keep your food fresh longer with this frost-free double door refrigerator. Features a smart inverter compressor for energy efficiency and super silent operation.",
+"category": "Refrigerators",
+"price": 1250.50,
+"rating": 4.5,
+"thumbnail": "https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&q=80&w=800",
+"reviews": [{}, {}, {}, {}, {}]
+},
+{
+"id": "3",
+"title": "Honda 5.5KVA Key Start Generator",
+"description": "Reliable and durable power backup solution. This 5.5KVA generator features a copper coil, key start mechanism, and low noise output perfect for homes and small businesses.",
+"category": "Generators",
+"price": 980.00,
+"rating": 4.9,
+"thumbnail": "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=800",
+"reviews": [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
+},
+{
+"id": "4",
+"title": "Daikin 1.5 HP Split Air Conditioner",
+"description": "Beat the heat with this powerful 1.5 HP split AC. Features fast cooling technology, a washable anti-bacterial filter, and a highly durable copper condenser.",
+"category": "Air Conditioners",
+"price": 645.00,
+"rating": 4.6,
+"thumbnail": "https://images.unsplash.com/photo-1631541909061-71e34edde736?auto=format&fit=crop&q=80&w=800",
+"reviews": [{}, {}, {}, {}]
+},
+{
+"id": "5",
+"title": "Bosch 8kg Front Load Washing Machine",
+"description": "Advanced washing machine with EcoSilence Drive for a quiet wash. Includes multiple wash programs, allergy plus mode, and high spin speed for faster drying.",
+"category": "Washing Machines",
+"price": 720.00,
+"rating": 4.7,
+"thumbnail": "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&q=80&w=800",
+"reviews": [{}, {}, {}, {}, {}, {}, {}]
+},
+{
+"id": "6",
+"title": "Panasonic 25L Microwave Oven",
+"description": "Quickly heat and defrost food with this spacious 25-liter digital microwave oven. Features auto-cook menus, child safety lock, and an easy-to-clean interior.",
+"category": "Microwaves",
+"price": 150.00,
+"rating": 4.3,
+"thumbnail": "https://images.unsplash.com/photo-1585659722983-38ca899fc73d?auto=format&fit=crop&q=80&w=800",
+"reviews": [{}, {}, {}]
+},
+{
+"id": "7",
+"title": "Luminous 3.5KVA Solar Inverter",
+"description": "Ensure continuous power with this pure sine wave solar inverter. Supports heavy loads and is equipped with intelligent battery charging management for longer life.",
+"category": "Power Solutions",
+"price": 430.00,
+"rating": 4.8,
+"thumbnail": "https://images.unsplash.com/photo-1509391366360-1200b7d443c0?auto=format&fit=crop&q=80&w=800",
+"reviews": [{}, {}, {}, {}, {}, {}]
+},
+{
+"id": "8",
+"title": "Hisense 200L Chest Freezer",
+"description": "Spacious and energy-efficient chest freezer capable of retaining freezing temperatures for up to 135 hours after a power outage. Includes a sliding glass door inner layer.",
+"category": "Freezers",
+"price": 310.00,
+"rating": 4.5,
+"thumbnail": "https://images.unsplash.com/photo-1605348532760-6753d2c43329?auto=format&fit=crop&q=80&w=800",
+"reviews": [{}, {}, {}, {}]
+},
+{
+"id": "9",
+"title": "Sony 5.1 Channel Soundbar System",
+"description": "Transform your living room into a cinema. This 5.1 channel soundbar comes with a powerful subwoofer and rear speakers to deliver immersive surround sound.",
+"category": "Audio",
+"price": 299.99,
+"rating": 4.7,
+"thumbnail": "https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&q=80&w=800",
+"reviews": [{}, {}, {}, {}, {}, {}, {}, {}, {}]
+},
+{
+"id": "10",
+"title": "Thermocool 4-Burner Gas Cooker",
+"description": "Cook multiple dishes at once with this premium 4-burner free-standing gas cooker. Features a stainless steel body, cast iron pan supports, and a spacious baking oven.",
+"category": "Kitchen Appliances",
+"price": 450.00,
+"rating": 4.6,
+"thumbnail": "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=800",
+"reviews": [{}, {}, {}, {}, {}]
+},
+{
+"id": "11",
+"title": "Nexus Top Load Water Dispenser",
+"description": "Enjoy hot, cold, and room-temperature water instantly. This stylish water dispenser features a mini-refrigerator compartment at the bottom for storing drinks and fruits.",
+"category": "Appliances",
+"price": 185.00,
+"rating": 4.2,
+"thumbnail": "https://images.unsplash.com/photo-1610312278520-bcc893a3ff1d?auto=format&fit=crop&q=80&w=800",
+"reviews": [{}, {}]
+},
+{
+"id": "12",
+"title": "Ox 18-Inch Industrial Standing Fan",
+"description": "Heavy-duty standing fan designed for maximum airflow. Features a highly efficient copper motor, 3-speed control, and sturdy metal blades ideal for large rooms or outdoor spaces.",
+"category": "Cooling",
+"price": 85.50,
+"rating": 4.4,
+"thumbnail": "https://images.unsplash.com/photo-1616853755490-6c927c3fb3c9?auto=format&fit=crop&q=80&w=800",
+"reviews": [{}, {}, {}, {}, {}, {}]
+}
+]
+}

@@ -6,7 +6,7 @@ import { BiCartAdd, BiMinus, BiPlus } from 'react-icons/bi';
 import { useCartStore } from '@/store/useCartStore';
 
 interface Product {
-  id: number;
+  id: string;
   title: string;
   price: number;
   image: string;
@@ -20,7 +20,7 @@ export default function AddToCartSection({ product }: { product: Product }) {
     // Add the specific quantity to the store
     for (let i = 0; i < quantity; i++) {
       addItem({
-        id: product.id.toString(),
+        id: product.id,
         name: product.title,
         price: product.price,
         image: product.image,

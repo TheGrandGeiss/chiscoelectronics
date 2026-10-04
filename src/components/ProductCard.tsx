@@ -6,7 +6,7 @@ import { useCartStore } from '@/store/useCartStore';
 
 // Define the shape of the FakeStore API response
 interface Product {
-  id: number;
+  id: string;
   title: string;
   price: number;
   description: string;
@@ -19,7 +19,7 @@ export default function ProductCard({ product }: { product: Product }) {
 
   const handleAddToCart = () => {
     addItem({
-      id: product.id.toString(),
+      id: product.id,
       name: product.title,
       price: product.price,
       image: product.image,
